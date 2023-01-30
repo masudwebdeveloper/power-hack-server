@@ -32,6 +32,12 @@ async function run() {
       res.send(result);
     });
 
+    app.get('/total-paid', async(req,res)=>{
+      const query = {};
+      const result = await billCollections.find(query).toArray();
+      res.send(result);
+    })
+
     // this api use to get bill list
     app.get("/billing-list", async (req, res) => {
       const size = parseInt(req.query.size);
